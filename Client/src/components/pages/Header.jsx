@@ -17,9 +17,9 @@ export default function Header(){
     { auth ?
     <ul className='nav-ul'>
       
-        <li><Link to="/" >Product</Link></li>
-        <li><Link to="/add" >Add Product</Link></li>
-        <li><Link to="/update/:id" >Update Product</Link></li>
+     
+        <li><Link to="/add" >Register</Link></li>
+        
         <li><Link to="/about" >About Me</Link></li>
         <li><Link to="/signup" onClick={logout} >Logout ({JSON.parse(auth).name})</Link></li>
         {/* <li>{auth ? <Link to="/signup" onClick={logout} >Logout</Link> : <Link to="/signup" >Sign Up</Link> }</li> */}    

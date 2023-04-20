@@ -14,7 +14,7 @@ const Login = ()=>{
 const loginData = async () => {
     console.log(email,password);
     let result = await fetch("http://localhost:5000/login",{
-        method:"post",
+        method:"POST",
         body:JSON.stringify({email,password}),
         headers:{
             "Content-Type":"application/json"

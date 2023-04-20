@@ -11,7 +11,8 @@ import PrivateCom from './components/pages/PrivateCom';
 import Logout from './components/pages/Logout';
 import Update from './components/pages/Update';
 import Login from './components/pages/Login';
-import Product from './components/pages/Product';
+import Product from './components/pages/Products';
+import Products from './components/pages/Products';
 
 export default function App(){
   return(
@@ -21,7 +22,7 @@ export default function App(){
    <Routes>
 
     <Route element={<PrivateCom/>}>
-   <Route path='/' element={<Product/>} />
+   <Route path='/' element={<Products/>} />
    <Route path='/add' element={<AddProduct/>} />
    <Route path='/update/:id' element={<Update/>} />
    <Route path='/profile' element={<Profile/>} />

@@ -6,7 +6,7 @@ const SignUp = () => {
     const[name,setName] = useState("");
     const[email,setEmail] = useState("");
     const[password,setPassword] = useState("");
-    const navigate = useNavigate("");
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const auth=localStorage.getItem('user');
@@ -16,16 +16,19 @@ const SignUp = () => {
       },[])
     
     const collectData= async ()=>{
+      const product={name,email,password}
         console.log({name,email,password})
         let result = await fetch("http://localhost:5000/resister",{
             method:'POST',
-            body:JSON.stringify({name,email,password}),
-            headers:{"Content-Type":"application/json"}
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(product),
+          
         });
            result =  await result.json()
            console.log(result);
            if(result){
             localStorage.setItem('user',JSON.stringify(result));
+            alert('Register Successfully')
             navigate('/')
            }
     }

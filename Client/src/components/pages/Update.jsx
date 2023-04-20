@@ -3,9 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default  function Update(){
     const[name,setName] = useState("");
-    const[price,setPrice] = useState("");
-    const[category,setCategory] = useState("");
-    const[company,setCompany] = useState("");
+    const[remail,setRemail] = useState("");
+    const[rpassword,setRpassword] = useState("");
     const navigate = useNavigate("");
     const params = useParams(); 
 
@@ -17,15 +16,15 @@ export default  function Update(){
         let result = await fetch(`http://localhost:5000/product/${params.id}`);
         result = await result.json();
         setName(result.name);
-        setPrice(result.price);
-        setCategory(result.category);
-        setCompany(result.company);
+        setRemail(result.remail);
+        setRpassword(result.rpassword);
+        
     }
     const updateProduct = async () =>{
-        console.log({name,price,category,company})
+        console.log({name,remail,rpassword})
         let result = await fetch(`http://localhost:5000/product/${params.id}`,{
             method:"put",
-            body:JSON.stringify({name,price,category,company}),
+            body:JSON.stringify({name,remail,rpassword}),
             headers:{"Content-Type":"application/json"}
         });
         result = await result.json()
@@ -36,10 +35,10 @@ export default  function Update(){
     return(
         <div className="resister">
             <h3>Update <b style={{color:"skyblue"}}>Product</b> </h3><hr/>
-            <input type="text" className="inputBox" value={name} onChange={(e)=>{setName(e.target.value)}} placeholder="Enter Your Product Name" />
-            <input type="text" className="inputBox" value={price} onChange={(e)=>{setPrice(e.target.value)}} placeholder="Enter Your Product Price" />
-            <input type="text" className="inputBox" value={category} onChange={(e)=>{setCategory(e.target.value)}} placeholder="Enter Your Product Category" />
-            <input type="text" className="inputBox" value={company} onChange={(e)=>{setCompany(e.target.value)}} placeholder="Enter Your Product Company" />
+            <input type="text" className="inputBox" value={name} onChange={(e)=>{setName(e.target.value)}} placeholder="Enter Your Name" />
+            <input type="text" className="inputBox" value={remail} onChange={(e)=>{setRemail(e.target.value)}} placeholder="Enter Your Email " />
+            <input type="text" className="inputBox" value={rpassword} onChange={(e)=>{setRpassword(e.target.value)}} placeholder="Enter Your Pasword" />
+            
             <button type="button" onClick={updateProduct}  className="add">Update</button>
         </div>
     )

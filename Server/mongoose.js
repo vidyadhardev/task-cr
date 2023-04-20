@@ -1,6 +1,11 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const app = express();
+
+const mongoose = require("mongoose");
+
+mongoose.set('strictQuery', true);
+
 const connectDB = async ()=>{
     mongoose.connect('mongodb://127.0.0.1:27017:27017/e-comm');
     const productSchema = new mongoose.Schema({});
